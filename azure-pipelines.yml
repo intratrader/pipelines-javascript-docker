@@ -8,11 +8,11 @@ trigger:
 resources:
 - repo: 
 - task: CmdLine@2
+  input- task: PublishPipelineArtifact@1
   inputs:
-    script: |
-      echo Write your commands here
-      
-      echo Hello world
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'inttrading'
+    publishLocation: 'pipeline'
 
 variables:
   tag: '$(Build.BuildId)'
